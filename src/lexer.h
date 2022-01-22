@@ -13,8 +13,12 @@ class Lexer {
       Symbole * Consulter();
       void Avancer();
 
+      void putSymbol(Symbole *s);
+      bool finDuFlux();
+
    protected:
       string flux;
-      int tete;
+      string::size_type tete;
       Symbole * tampon;
 };
+

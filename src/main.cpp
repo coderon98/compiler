@@ -1,10 +1,10 @@
 #include <iostream>
-#include "lexer.h"
+#include "automate.h"
 
-
+/*
 int main(void) {
    string chaine("(1+34)*123");
-
+   cout << chaine << endl;
    Lexer l(chaine);
 
    Symbole * s;
@@ -15,4 +15,17 @@ int main(void) {
    }
    return 0;
 }
+*/
 
+int main(void) {
+
+  string chaine="(1+34)*123";
+/*
+  cout << "Indiquez la phrase à analyser :" << endl;
+  cin >> chaine;
+ */
+  Automate *automate = new Automate(chaine);
+  automate->run();
+
+  return 0;
+}

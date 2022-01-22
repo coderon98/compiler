@@ -1,10 +1,12 @@
 #include "lexer.h"
+#include <iostream>
 
 Symbole * Lexer::Consulter() {
    if (!tampon) {
 
-      if (tete==flux.length())
+      if (tete==flux.length()){
          tampon = new Symbole(FIN);
+      }
       else
       {
 
@@ -48,4 +50,17 @@ Symbole * Lexer::Consulter() {
 void Lexer::Avancer() {
    tampon = nullptr;
 }
+
+void Lexer::putSymbol(Symbole *s) {
+  switch (*s) {
+      case PLUS:
+      case MULT:
+      case OPENPAR:
+      case CLOSEPAR:
+         tampon = s;
+         break;
+  }
+}
+
+bool Lexer::finDuFlux() { return tete == flux.length(); }
 
