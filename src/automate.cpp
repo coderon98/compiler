@@ -4,14 +4,6 @@
 
 Automate::Automate(string flux) {
   this->lexer = new Lexer(flux);
-  /*
-  Symbole * s;
-   while(*(s=this->lexer->Consulter())!=FIN) {
-      s->Affiche();
-      cout<<endl;
-      this->lexer->Avancer();
-   }
-   */
   Etat0 *depart = new Etat0();
   statestack.push(depart);
 }
@@ -38,6 +30,9 @@ void Automate::run() {
 void Automate::decalage(Symbole *s, Etat *e) {
   symbolstack.push(s);
   statestack.push(e);
+  if(s->isTerminal()){
+    lexer->Avancer();
+  }
 }
 
 void Automate::reduction(int n, Symbole *s) {

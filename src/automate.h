@@ -6,6 +6,7 @@
 #include <string>
 
 class Etat;
+class Lexer;
 
 using namespace std;
 

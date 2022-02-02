@@ -15,6 +15,7 @@ class Etat {
         virtual bool transition(Automate &automate, Symbole *s) = 0;
         virtual int etat();
         string getName(){return name;}
+        void call(Symbole *s);
 
     protected:
         string name;

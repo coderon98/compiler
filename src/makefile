@@ -22,11 +22,11 @@ symbole.o: symbole.cpp symbole.h
 main.o: main.cpp lexer.h 
 	$(CC) -c $(CFLAGS) main.cpp
 	
-$(TARGET): clean $(COMP) 
+$(TARGET): $(COMP) 
 	$(CC) $(CFLAGS) $(COMP) -o $(TARGET)
 
 clean:
 	rm *.o
 
-run: $(TARGET)
+run: clean $(TARGET)
 	./main

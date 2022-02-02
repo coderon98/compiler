@@ -14,7 +14,7 @@ class Symbole {
       operator int() const { return ident; }
       virtual void Affiche();
       virtual int getValeur();
-
+      virtual bool isTerminal(){return false;}
    protected:
       int ident;
 };
@@ -30,18 +30,21 @@ class ClosePar: public Symbole {
       ClosePar(): Symbole(Identificateurs::CLOSEPAR) {}
       virtual ~ClosePar() { }
       virtual void Affiche();
+      virtual bool isTerminal(){return true;}
 };
 class Plus: public Symbole {
    public: 
       Plus(): Symbole(Identificateurs::PLUS) {}
       virtual ~Plus() { }
       virtual void Affiche();
+      virtual bool isTerminal(){return true;}
 };
 class Mult: public Symbole {
    public: 
       Mult(): Symbole(Identificateurs::MULT) {}
       virtual ~Mult() { }
       virtual void Affiche();
+      virtual bool isTerminal(){return true;}
 };
 class Entier : public Symbole {
    public:
@@ -49,6 +52,7 @@ class Entier : public Symbole {
       ~Entier() { }
       virtual void Affiche();
       int getValeur();
+      virtual bool isTerminal(){return true;}
    protected:
       int valeur;
 };
@@ -57,12 +61,14 @@ class Fin: public Symbole {
       Fin(): Symbole(Identificateurs::FIN) {}
       virtual ~Fin() { }
       virtual void Affiche();
+      virtual bool isTerminal(){return true;}
 };
 class Erreur: public Symbole {
    public: 
       Erreur(): Symbole(Identificateurs::ERREUR) {}
       virtual ~Erreur() { }
       virtual void Affiche();
+      virtual bool isTerminal(){return true;}
 };
 class Expr: public Symbole {
    public: 
@@ -70,6 +76,7 @@ class Expr: public Symbole {
       virtual ~Expr() { }
       virtual void Affiche();
       int getValeur();
+      virtual bool isTerminal(){return false;}
    protected:
       int valeur;
 };
